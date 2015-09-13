@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.1.3] - 2015-09-12
+### Added
+  - Add egg information to dependency git url. 
+
 ## [0.1.2] - 2015-09-12
 ### Changed
   - Fix setup dependency links. 

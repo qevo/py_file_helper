@@ -12,7 +12,7 @@ def read(fname):
 
 config = {}
 config["name"]             = "file_helper"
-config["version"]          = "0.1.2"
+config["version"]          = "0.1.3"
 config["author"]           = "Qevo"
 config["author_email"]     = "qevo@qevonics.net"
 config["description"]      = ("File search, identification, analysis, and manipulation tools.")
@@ -21,7 +21,7 @@ config["keywords"]         = "file_system file_management files file"
 config["url"]              = "https://github.com/qevo/py_file_helper"
 config["packages"]         = ["file_helper"]
 config["install_requires"] = ["data_helper"]
-config["dependency_links"] = ["git+ssh://git@github.com:qevo/py_data_helper.git"]
+config["dependency_links"] = ["git+ssh://git@github.com:qevo/py_data_helper.git#egg=data_helper"]
 config["long_description"] = read("README.md")
 config["classifiers"]      = [
     "Development Status :: 3 - Alpha",

@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sphinx Conf &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Sphinx Makefile" href="sphinx.makefile.html" />
+    <link rel="prev" title="tests.operation module" href="tests.operation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sphinx.makefile.html" title="Sphinx Makefile"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tests.operation.html" title="tests.operation module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-conf">
+<h1>Sphinx Conf<a class="headerlink" href="#sphinx-conf" title="Permalink to this headline">¶</a></h1>
+<div class="code py highlight-python"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">#</span>
+<span class="c"># This file must be used in conjunction with a properly structured setup.py.</span>
+<span class="c">#</span>
+<span class="c"># This file is execfile()d with the current directory set to its</span>
+<span class="c"># containing dir.</span>
+<span class="c">#</span>
+<span class="c"># Note that not all possible configuration values are present in this</span>
+<span class="c"># file.</span>
+<span class="c">#</span>
+<span class="c"># All configuration values have a default; values that are commented out</span>
+<span class="c"># serve to show the default.</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+
+<span class="c"># If extensions (or modules to document with autodoc) are in another directory,</span>
+<span class="c"># add these directories to sys.path here. If the directory is relative to the</span>
+<span class="c"># documentation root, use os.path.abspath to make it absolute, like shown here.</span>
+<span class="c">#sys.path.insert(0, os.path.abspath(&#39;.&#39;))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span> <span class="o">+</span>  <span class="s">&#39;/./..&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">setup</span> <span class="kn">import</span> <span class="n">config</span> <span class="k">as</span> <span class="n">setup_config</span>
+
+<span class="c"># -- General configuration ------------------------------------------------</span>
+
+<span class="c"># If your documentation needs a minimal Sphinx version, state it here.</span>
+<span class="c">#needs_sphinx = &#39;1.0&#39;</span>
+
+<span class="c"># Add any Sphinx extension module names here, as strings. They can be</span>
+<span class="c"># extensions coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom</span>
+<span class="c"># ones.</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sphinx.ext.doctest&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sphinx.ext.viewcode&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sphinx.ext.napoleon&#39;</span>
+<span class="p">]</span>
+
+<span class="c"># Add any paths that contain templates here, relative to this directory.</span>
+<span class="c">#templates_path = [&#39;_templates&#39;]</span>
+
+<span class="c"># The suffix(es) of source filenames.</span>
+<span class="c"># You can specify multiple suffix as a list of string:</span>
+<span class="c"># source_suffix = [&#39;.rst&#39;, &#39;.md&#39;]</span>
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="s">&#39;.rst&#39;</span>
+
+<span class="c"># The encoding of source files.</span>
+<span class="c">#source_encoding = &#39;utf-8-sig&#39;</span>
+
+<span class="c"># The master toctree document.</span>
+<span class="n">master_doc</span> <span class="o">=</span> <span class="s">&#39;index&#39;</span>
+
+<span class="c"># General information about the project.</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">setup_config</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+<span class="n">author</span> <span class="o">=</span> <span class="n">setup_config</span><span class="p">[</span><span class="s">&#39;author&#39;</span><span class="p">]</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, &#39;</span> <span class="o">+</span> <span class="n">author</span>
+<span class="n">description</span> <span class="o">=</span> <span class="n">setup_config</span><span class="p">[</span><span class="s">&quot;description&quot;</span><span class="p">]</span>
+
+<span class="c"># The version info for the project you&#39;re documenting, acts as replacement for</span>
+<span class="c"># |version| and |release|, also used in various other places throughout the</span>
+<span class="c"># built documents.</span>
+<span class="c">#</span>
+<span class="c"># The short X.Y version.</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">setup_config</span><span class="p">[</span><span class="s">&#39;version&#39;</span><span class="p">]</span>
+<span class="c"># The full version, including alpha/beta/rc tags.</span>
+<span class="n">release</span> <span class="o">=</span> <span class="n">version</span>
+
+<span class="c"># The language for content autogenerated by Sphinx. Refer to documentation</span>
+<span class="c"># for a list of supported languages.</span>
+<span class="c">#</span>
+<span class="c"># This is also used if you do content translation via gettext catalogs.</span>
+<span class="c"># Usually you set &quot;language&quot; from the command line for these cases.</span>
+<span class="n">language</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c"># There are two options for replacing |today|: either, you set today to some</span>
+<span class="c"># non-false value, then it is used:</span>
+<span class="c">#today = &#39;&#39;</span>
+<span class="c"># Else, today_fmt is used as the format for a strftime call.</span>
+<span class="c">#today_fmt = &#39;%B %d, %Y&#39;</span>
+
+<span class="c"># List of patterns, relative to source directory, that match files and</span>
+<span class="c"># directories to ignore when looking for source files.</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c"># The reST default role (used for this markup: `text`) to use for all</span>
+<span class="c"># documents.</span>
+<span class="c">#default_role = None</span>
+
+<span class="c"># If true, &#39;()&#39; will be appended to :func: etc. cross-reference text.</span>
+<span class="c">#add_function_parentheses = True</span>
+
+<span class="c"># If true, the current module name will be prepended to all description</span>
+<span class="c"># unit titles (such as .. function::).</span>
+<span class="c">#add_module_names = True</span>
+
+<span class="c"># If true, sectionauthor and moduleauthor directives will be shown in the</span>
+<span class="c"># output. They are ignored by default.</span>
+<span class="c">#show_authors = False</span>
+
+<span class="c"># The name of the Pygments (syntax highlighting) style to use.</span>
+<span class="n">pygments_style</span> <span class="o">=</span> <span class="s">&#39;sphinx&#39;</span>
+
+<span class="c"># A list of ignored prefixes for module index sorting.</span>
+<span class="c">#modindex_common_prefix = []</span>
+
+<span class="c"># If true, keep warnings as &quot;system message&quot; paragraphs in the built documents.</span>
+<span class="c">#keep_warnings = False</span>
+
+<span class="c"># If true, `todo` and `todoList` produce output, else they produce nothing.</span>
+<span class="n">todo_include_todos</span> <span class="o">=</span> <span class="bp">True</span>
+
+
+<span class="c"># -- Options for HTML output ----------------------------------------------</span>
+
+<span class="c"># The theme to use for HTML and HTML Help pages.  See the documentation for</span>
+<span class="c"># a list of builtin themes.</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s">&#39;classic&#39;</span>
+
+<span class="c"># Theme options are theme-specific and customize the look and feel of a theme</span>
+<span class="c"># further.  For a list of options available for each theme, see the</span>
+<span class="c"># documentation.</span>
+<span class="c">#html_theme_options = {}</span>
+
+<span class="c"># Add any paths that contain custom themes here, relative to this directory.</span>
+<span class="c">#html_theme_path = []</span>
+
+<span class="c"># The name for this set of Sphinx documents.  If None, it defaults to</span>
+<span class="c"># &quot;&lt;project&gt; v&lt;release&gt; documentation&quot;.</span>
+<span class="c">#html_title = None</span>
+
+<span class="c"># A shorter title for the navigation bar.  Default is the same as html_title.</span>
+<span class="c">#html_short_title = None</span>
+
+<span class="c"># The name of an image file (relative to this directory) to place at the top</span>
+<span class="c"># of the sidebar.</span>
+<span class="c">#html_logo = None</span>
+
+<span class="c"># The name of an image file (within the static path) to use as favicon of the</span>
+<span class="c"># docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32</span>
+<span class="c"># pixels large.</span>
+<span class="c">#html_favicon = None</span>
+
+<span class="c"># Add any paths that contain custom static files (such as style sheets) here,</span>
+<span class="c"># relative to this directory. They are copied after the builtin static files,</span>
+<span class="c"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.</span>
+<span class="c">#html_static_path = [&#39;_static&#39;]</span>
+
+<span class="c"># Add any extra paths that contain custom files (such as robots.txt or</span>
+<span class="c"># .htaccess) here, relative to this directory. These files are copied</span>
+<span class="c"># directly to the root of the documentation.</span>
+<span class="c">#html_extra_path = []</span>
+
+<span class="c"># If not &#39;&#39;, a &#39;Last updated on:&#39; timestamp is inserted at every page bottom,</span>
+<span class="c"># using the given strftime format.</span>
+<span class="n">html_last_updated_fmt</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%d</span><span class="s"> %b %Y&#39;</span>
+
+<span class="c"># If true, SmartyPants will be used to convert quotes and dashes to</span>
+<span class="c"># typographically correct entities.</span>
+<span class="c">#html_use_smartypants = True</span>
+
+<span class="c"># Custom sidebar templates, maps document names to template names.</span>
+<span class="c">#html_sidebars = {}</span>
+
+<span class="c"># Additional templates that should be rendered to pages, maps page names to</span>
+<span class="c"># template names.</span>
+<span class="c">#html_additional_pages = {}</span>
+
+<span class="c"># If false, no module index is generated.</span>
+<span class="n">html_domain_indices</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c"># If false, no index is generated.</span>
+<span class="n">html_use_index</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c"># If true, the index is split into individual pages for each letter.</span>
+<span class="c">#html_split_index = False</span>
+
+<span class="c"># If true, links to the reST sources are added to the pages.</span>
+<span class="n">html_show_sourcelink</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c"># If true, &quot;Created using Sphinx&quot; is shown in the HTML footer. Default is True.</span>
+<span class="n">html_show_sphinx</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c"># If true, &quot;(C) Copyright ...&quot; is shown in the HTML footer. Default is True.</span>
+<span class="c">#html_show_copyright = True</span>
+
+<span class="c"># If true, an OpenSearch description file will be output, and all pages will</span>
+<span class="c"># contain a &lt;link&gt; tag referring to it.  The value of this option must be the</span>
+<span class="c"># base URL from which the finished HTML is served.</span>
+<span class="c">#html_use_opensearch = &#39;&#39;</span>
+
+<span class="c"># This is the file name suffix for HTML files (e.g. &quot;.xhtml&quot;).</span>
+<span class="c">#html_file_suffix = None</span>
+
+<span class="c"># Language to be used for generating the HTML full-text search index.</span>
+<span class="c"># Sphinx supports the following languages:</span>
+<span class="c">#   &#39;da&#39;, &#39;de&#39;, &#39;en&#39;, &#39;es&#39;, &#39;fi&#39;, &#39;fr&#39;, &#39;hu&#39;, &#39;it&#39;, &#39;ja&#39;</span>
+<span class="c">#   &#39;nl&#39;, &#39;no&#39;, &#39;pt&#39;, &#39;ro&#39;, &#39;ru&#39;, &#39;sv&#39;, &#39;tr&#39;</span>
+<span class="c">#html_search_language = &#39;en&#39;</span>
+
+<span class="c"># A dictionary with options for the search language support, empty by default.</span>
+<span class="c"># Now only &#39;ja&#39; uses this config value</span>
+<span class="c">#html_search_options = {&#39;type&#39;: &#39;default&#39;}</span>
+
+<span class="c"># The name of a javascript file (relative to the configuration directory) that</span>
+<span class="c"># implements a search results scorer. If empty, the default will be used.</span>
+<span class="c">#html_search_scorer = &#39;scorer.js&#39;</span>
+
+<span class="c"># Output file base name for HTML help builder.</span>
+<span class="n">htmlhelp_basename</span> <span class="o">=</span> <span class="n">project</span> <span class="o">+</span> <span class="s">&#39;doc&#39;</span>
+
+<span class="c"># -- Options for LaTeX output ---------------------------------------------</span>
+
+<span class="n">latex_elements</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c"># The paper size (&#39;letterpaper&#39; or &#39;a4paper&#39;).</span>
+<span class="c">#&#39;papersize&#39;: &#39;letterpaper&#39;,</span>
+
+<span class="c"># The font size (&#39;10pt&#39;, &#39;11pt&#39; or &#39;12pt&#39;).</span>
+<span class="c">#&#39;pointsize&#39;: &#39;10pt&#39;,</span>
+
+<span class="c"># Additional stuff for the LaTeX preamble.</span>
+<span class="c">#&#39;preamble&#39;: &#39;&#39;,</span>
+
+<span class="c"># Latex figure (float) alignment</span>
+<span class="c">#&#39;figure_align&#39;: &#39;htbp&#39;,</span>
+<span class="p">}</span>
+
+<span class="c"># Grouping the document tree into LaTeX files. List of tuples</span>
+<span class="c"># (source start file, target name, title,</span>
+<span class="c">#  author, documentclass [howto, manual, or own class]).</span>
+<span class="n">latex_documents</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="n">master_doc</span><span class="p">,</span> <span class="n">project</span> <span class="o">+</span> <span class="s">u&#39;.tex&#39;</span><span class="p">,</span> <span class="n">project</span> <span class="o">+</span> <span class="s">u&#39; Documentation&#39;</span><span class="p">,</span>
+   <span class="n">author</span><span class="p">,</span> <span class="s">&#39;manual&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c"># The name of an image file (relative to this directory) to place at the top of</span>
+<span class="c"># the title page.</span>
+<span class="c">#latex_logo = None</span>
+
+<span class="c"># For &quot;manual&quot; documents, if this is true, then toplevel headings are parts,</span>
+<span class="c"># not chapters.</span>
+<span class="c">#latex_use_parts = False</span>
+
+<span class="c"># If true, show page references after internal links.</span>
+<span class="c">#latex_show_pagerefs = False</span>
+
+<span class="c"># If true, show URL addresses after external links.</span>
+<span class="c">#latex_show_urls = False</span>
+
+<span class="c"># Documents to append as an appendix to all manuals.</span>
+<span class="c">#latex_appendices = []</span>
+
+<span class="c"># If false, no module index is generated.</span>
+<span class="c">#latex_domain_indices = True</span>
+
+
+<span class="c"># -- Options for manual page output ---------------------------------------</span>
+
+<span class="c"># One entry per manual page. List of tuples</span>
+<span class="c"># (source start file, name, description, authors, manual section).</span>
+<span class="n">man_pages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">master_doc</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">project</span> <span class="o">+</span> <span class="s">u&#39; Documentation&#39;</span><span class="p">,</span>
+     <span class="p">[</span><span class="n">author</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c"># If true, show URL addresses after external links.</span>
+<span class="c">#man_show_urls = False</span>
+
+
+<span class="c"># -- Options for Texinfo output -------------------------------------------</span>
+
+<span class="c"># Grouping the document tree into Texinfo files. List of tuples</span>
+<span class="c"># (source start file, target name, title, author,</span>
+<span class="c">#  dir menu entry, description, category)</span>
+<span class="n">texinfo_documents</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="n">master_doc</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">project</span> <span class="o">+</span> <span class="s">u&#39; Documentation&#39;</span><span class="p">,</span>
+   <span class="n">author</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">description</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+   <span class="s">&#39;Miscellaneous&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c"># Documents to append as an appendix to all manuals.</span>
+<span class="c">#texinfo_appendices = []</span>
+
+<span class="c"># If false, no module index is generated.</span>
+<span class="c">#texinfo_domain_indices = True</span>
+
+<span class="c"># How to display URL addresses: &#39;footnote&#39;, &#39;no&#39;, or &#39;inline&#39;.</span>
+<span class="c">#texinfo_show_urls = &#39;footnote&#39;</span>
+
+<span class="c"># If true, do not generate a @detailmenu in the &quot;Top&quot; node&#39;s menu.</span>
+<span class="c">#texinfo_no_detailmenu = False</span>
+
+
+<span class="c"># Example configuration for intersphinx: refer to the Python standard library.</span>
+<span class="n">intersphinx_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;python&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;https://docs.python.org/2.7&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+    <span class="s">&#39;sphinx&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;http://sphinx-doc.org&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+    <span class="s">&#39;datahelper&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;http://py-data-helper.readthedocs.org/en/latest/&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tests.operation.html"
+                        title="previous chapter">tests.operation module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sphinx.makefile.html"
+                        title="next chapter">Sphinx Makefile</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sphinx.conf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sphinx.makefile.html" title="Sphinx Makefile"
+             >next</a></li>
+        <li class="right" >
+          <a href="tests.operation.html" title="tests.operation module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>file_helper.operation module &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="file_helper package" href="file_helper.html" />
+    <link rel="next" title="tests package" href="tests.html" />
+    <link rel="prev" title="file_helper.manage module" href="file_helper.manage.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.html" title="tests package"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="file_helper.manage.html" title="file_helper.manage module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="file_helper.html" accesskey="U">file_helper package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-file_helper.operation">
+<span id="file-helper-operation-module"></span><h1>file_helper.operation module<a class="headerlink" href="#module-file_helper.operation" title="Permalink to this headline">¶</a></h1>
+<p>File operations wrapper functions to streamline common use cases</p>
+<dl class="function">
+<dt id="file_helper.operation.hash_file">
+<code class="descclassname">file_helper.operation.</code><code class="descname">hash_file</code><span class="sig-paren">(</span><em>hash_name</em>, <em>path</em>, <em>size=None</em>, <em>offset=0</em>, <em>whence=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/operation.html#hash_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.operation.hash_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the hash of a file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hash_name</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Hash algorithm name. See <a class="reference external" href="https://docs.python.org/2.7/library/hashlib.html#module-hashlib" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">hashlib</span></code></a></li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path of file.</li>
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Read length in bytes. Defaults to None.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Offset from the whence position. Defaults to 0.</li>
+<li><strong>whence</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Hash (hex) string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="file_helper.operation.read_file">
+<code class="descclassname">file_helper.operation.</code><code class="descname">read_file</code><span class="sig-paren">(</span><em>path</em>, <em>size=None</em>, <em>offset=0</em>, <em>whence=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/operation.html#read_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.operation.read_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a file in binary mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path of file.</li>
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Read length in bytes. Defaults to None.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Offset from the whence position. Defaults to 0.</li>
+<li><strong>whence</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Binary data.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="file_helper.operation.slice_file">
+<code class="descclassname">file_helper.operation.</code><code class="descname">slice_file</code><span class="sig-paren">(</span><em>path</em>, <em>size</em>, <em>offset=0</em>, <em>whence=0</em>, <em>output_dir=None</em>, <em>slice_name=None</em>, <em>slice_ext=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/operation.html#slice_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.operation.slice_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a new file from a slice of an existing file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path of existing file.</li>
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Read length in bytes.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Offset from the whence position. Defaults to 0.</li>
+<li><strong>whence</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</li>
+<li><strong>output_dir</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) Path to the directory where new file is saved.</li>
+<li><strong>slice_name</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) File name of the slice file. Defaults to the full file&#8217;s name (with extension).</li>
+<li><strong>slice_ext</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) File extension of the slice file. Defaults to &#8216;slice_oYYwXX&#8217; where YY and XX are the offset and whence respectively.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">File path of slice file.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="file_helper.operation.write_file">
+<code class="descclassname">file_helper.operation.</code><code class="descname">write_file</code><span class="sig-paren">(</span><em>path</em>, <em>data</em>, <em>mode='new'</em>, <em>offset=0</em>, <em>whence=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/operation.html#write_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.operation.write_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a file in binary mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Path of file.</li>
+<li><strong>data</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; Data to be written.</li>
+<li><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) &#8216;new&#8217; for a new or replacement file. &#8216;insert&#8217; for writing more data into a file. &#8216;overwrite&#8217; for writing new data over a file. &#8216;append&#8217; for adding to the end of a file. Defaults to &#8216;new&#8217;.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Offset from the whence position. Defaults to 0.</li>
+<li><strong>whence</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">File path to written file.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="file_helper.manage.html"
+                        title="previous chapter">file_helper.manage module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tests.html"
+                        title="next chapter">tests package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/file_helper.operation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.html" title="tests package"
+             >next</a></li>
+        <li class="right" >
+          <a href="file_helper.manage.html" title="file_helper.manage module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="file_helper.html" >file_helper package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

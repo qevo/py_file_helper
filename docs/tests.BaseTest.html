@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.BaseTest module &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="tests package" href="tests.html" />
+    <link rel="next" title="tests.SuiteHandler module" href="tests.SuiteHandler.html" />
+    <link rel="prev" title="tests package" href="tests.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.SuiteHandler.html" title="tests.SuiteHandler module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tests.html" title="tests package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" accesskey="U">tests package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tests.BaseTest">
+<span id="tests-basetest-module"></span><h1>tests.BaseTest module<a class="headerlink" href="#module-tests.BaseTest" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="tests.BaseTest.BaseTestWrapper">
+<em class="property">class </em><code class="descclassname">tests.BaseTest.</code><code class="descname">BaseTestWrapper</code><a class="reference internal" href="_modules/tests/BaseTest.html#BaseTestWrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.BaseTestWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="class">
+<dt id="tests.BaseTest.BaseTestWrapper.BaseTest">
+<em class="property">class </em><code class="descname">BaseTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/BaseTest.html#BaseTestWrapper.BaseTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.BaseTestWrapper.BaseTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case class to group common methods</p>
+<dl class="method">
+<dt id="tests.BaseTest.BaseTestWrapper.BaseTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/BaseTest.html#BaseTestWrapper.BaseTest.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.BaseTestWrapper.BaseTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting up for the test</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="tests.BaseTest.BaseTestWrapper.BaseTest.setUpClass">
+<em class="property">classmethod </em><code class="descname">setUpClass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/BaseTest.html#BaseTestWrapper.BaseTest.setUpClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.BaseTestWrapper.BaseTest.setUpClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting up the class</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.BaseTest.BaseTestWrapper.BaseTest.tearDown">
+<code class="descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/BaseTest.html#BaseTestWrapper.BaseTest.tearDown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.BaseTestWrapper.BaseTest.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleaning up after the test</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="tests.BaseTest.get_default_args">
+<code class="descclassname">tests.BaseTest.</code><code class="descname">get_default_args</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/BaseTest.html#get_default_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.BaseTest.get_default_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of arg_name:default_values for the input function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>func</em>) &#8211; A function</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of function argument keynames with default values.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2.7/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tests.html"
+                        title="previous chapter">tests package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tests.SuiteHandler.html"
+                        title="next chapter">tests.SuiteHandler module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tests.BaseTest.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.SuiteHandler.html" title="tests.SuiteHandler module"
+             >next</a></li>
+        <li class="right" >
+          <a href="tests.html" title="tests package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" >tests package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

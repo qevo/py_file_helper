@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>file_helper.manage module &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="file_helper package" href="file_helper.html" />
+    <link rel="next" title="file_helper.operation module" href="file_helper.operation.html" />
+    <link rel="prev" title="file_helper package" href="file_helper.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="file_helper.operation.html" title="file_helper.operation module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="file_helper.html" title="file_helper package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="file_helper.html" accesskey="U">file_helper package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-file_helper.manage">
+<span id="file-helper-manage-module"></span><h1>file_helper.manage module<a class="headerlink" href="#module-file_helper.manage" title="Permalink to this headline">¶</a></h1>
+<p>File management wrapper functions to streamline common use cases</p>
+<dl class="function">
+<dt id="file_helper.manage.find_file">
+<code class="descclassname">file_helper.manage.</code><code class="descname">find_file</code><span class="sig-paren">(</span><em>re_filter=None</em>, <em>branch='.'</em>, <em>recurse=True</em>, <em>depth=0</em>, <em>get_file=True</em>, <em>get_dir=True</em>, <em>case_i=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/manage.html#find_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.manage.find_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search a branch directory for files and / or directories whose name matches one or more of the filter patterns</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>branch</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) Directory to search. Suggestion: use absolute path. Defaults to current working directory.</li>
+<li><strong>re_filter</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; (optional) List of strings of wildcard patterns. Defaults to None, which skips any filtering.</li>
+<li><strong>recurse</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Recursive search flag. Defaults to True.</li>
+<li><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Set the recursion depth. Defaults to 0, which has a max of Python&#8217;s recursion limit.</li>
+<li><strong>get_file</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for file. Defaults to True.</li>
+<li><strong>get_dir</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for directory. Defaults to True.</li>
+<li><strong>case_i</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Case insensitive search. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of strings with paths of files.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)">list</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="file_helper.manage.find_file_re">
+<code class="descclassname">file_helper.manage.</code><code class="descname">find_file_re</code><span class="sig-paren">(</span><em>re_filter=None</em>, <em>branch='.'</em>, <em>recurse=True</em>, <em>depth=0</em>, <em>get_file=True</em>, <em>get_dir=True</em>, <em>re_flag=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/manage.html#find_file_re"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.manage.find_file_re" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search a branch directory for files and / or directories whose name matches one or more of the regex filter patterns</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>branch</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) Directory to search. Suggestion: use absolute path. Defaults to current working directory.</li>
+<li><strong>re_filter</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; (optional) List of strings of regular expression patterns. Defaults to None, which skips any filtering.</li>
+<li><strong>recurse</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Recursive search flag. Defaults to True.</li>
+<li><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Set the recursion depth. Defaults to 0, which has a max of Python&#8217;s recursion limit.</li>
+<li><strong>get_file</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for file. Defaults to True.</li>
+<li><strong>get_dir</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for directory. Defaults to True.</li>
+<li><strong>re_flag</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) See <a class="reference external" href="https://docs.python.org/2.7/library/re.html#module-re" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of strings with paths of files.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)">list</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="file_helper.manage.list_dir">
+<code class="descclassname">file_helper.manage.</code><code class="descname">list_dir</code><span class="sig-paren">(</span><em>dir='.'</em>, <em>recurse=True</em>, <em>depth=0</em>, <em>get_file=True</em>, <em>get_dir=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/file_helper/manage.html#list_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#file_helper.manage.list_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search a directory for files and directories</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dir</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; (optional) Directory to search. Suggestion: use absolute path. Defaults to current working directory.</li>
+<li><strong>recurse</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Recursive search flag. Defaults to True.</li>
+<li><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; (optional) Set the recursion depth. Defaults to 0, which has a max of Python&#8217;s recursion limit.</li>
+<li><strong>get_dir</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for directory. Defaults to True.</li>
+<li><strong>get_file</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; (optional) Return entry for file. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of strings of paths for files and directories.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)">list</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="file_helper.html"
+                        title="previous chapter">file_helper package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="file_helper.operation.html"
+                        title="next chapter">file_helper.operation module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/file_helper.manage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="file_helper.operation.html" title="file_helper.operation module"
+             >next</a></li>
+        <li class="right" >
+          <a href="file_helper.html" title="file_helper package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="file_helper.html" >file_helper package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

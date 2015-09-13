@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.manage module &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="tests package" href="tests.html" />
+    <link rel="next" title="tests.operation module" href="tests.operation.html" />
+    <link rel="prev" title="tests.SuiteHandler module" href="tests.SuiteHandler.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.operation.html" title="tests.operation module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tests.SuiteHandler.html" title="tests.SuiteHandler module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" accesskey="U">tests package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tests.manage">
+<span id="tests-manage-module"></span><h1>tests.manage module<a class="headerlink" href="#module-tests.manage" title="Permalink to this headline">¶</a></h1>
+<p>Tests for the file_helper.manage module</p>
+<dl class="class">
+<dt id="tests.manage.FindFileReTestCase">
+<em class="property">class </em><code class="descclassname">tests.manage.</code><code class="descname">FindFileReTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>manage.find_file_re() test cases</p>
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_os_mod_file">
+<code class="descname">test_os_mod_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_os_mod_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_os_mod_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_this_dir">
+<code class="descname">test_this_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_this_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_this_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by searching its parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_this_dir_recurse">
+<code class="descname">test_this_dir_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_this_dir_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_this_dir_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by searching its parent&#8217;s parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_this_file">
+<code class="descname">test_this_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_this_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_this_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by searching this same directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_this_file_case_i">
+<code class="descname">test_this_file_case_i</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_this_file_case_i"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_this_file_case_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by searching this same directory case insensitive</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileReTestCase.test_this_file_recurse">
+<code class="descname">test_this_file_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileReTestCase.test_this_file_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileReTestCase.test_this_file_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found recursively</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.manage.FindFileTestCase">
+<em class="property">class </em><code class="descclassname">tests.manage.</code><code class="descname">FindFileTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>manage.find_file() test cases</p>
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_os_mod_file">
+<code class="descname">test_os_mod_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_os_mod_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_os_mod_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_this_dir">
+<code class="descname">test_this_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_this_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_this_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by searching its parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_this_dir_recurse">
+<code class="descname">test_this_dir_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_this_dir_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_this_dir_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by searching its parent&#8217;s parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_this_file">
+<code class="descname">test_this_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_this_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_this_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by searching this same directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_this_file_case_i">
+<code class="descname">test_this_file_case_i</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_this_file_case_i"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_this_file_case_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by searching this same directory case insensitive</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.FindFileTestCase.test_this_file_recurse">
+<code class="descname">test_this_file_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#FindFileTestCase.test_this_file_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.FindFileTestCase.test_this_file_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found recursively</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.manage.ListDirTestCase">
+<em class="property">class </em><code class="descclassname">tests.manage.</code><code class="descname">ListDirTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#ListDirTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.ListDirTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>manage.list_dir() test cases</p>
+<dl class="method">
+<dt id="tests.manage.ListDirTestCase.test_this_dir">
+<code class="descname">test_this_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#ListDirTestCase.test_this_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.ListDirTestCase.test_this_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by searching its parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.ListDirTestCase.test_this_dir_recurse">
+<code class="descname">test_this_dir_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#ListDirTestCase.test_this_dir_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.ListDirTestCase.test_this_dir_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the current working directory can be found by recursively searching its parent directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.ListDirTestCase.test_this_file">
+<code class="descname">test_this_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#ListDirTestCase.test_this_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.ListDirTestCase.test_this_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by searching this same directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.manage.ListDirTestCase.test_this_file_recurse">
+<code class="descname">test_this_file_recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/manage.html#ListDirTestCase.test_this_file_recurse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.manage.ListDirTestCase.test_this_file_recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if this same file can be found by recursively searching this same directory</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tests.SuiteHandler.html"
+                        title="previous chapter">tests.SuiteHandler module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tests.operation.html"
+                        title="next chapter">tests.operation module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tests.manage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tests.operation.html" title="tests.operation module"
+             >next</a></li>
+        <li class="right" >
+          <a href="tests.SuiteHandler.html" title="tests.SuiteHandler module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" >tests package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

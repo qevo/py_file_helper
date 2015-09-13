@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pandoc &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Package Setup" href="package.setup.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="package.setup.html" title="Package Setup"
+             accesskey="P">previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pandoc">
+<h1>Pandoc<a class="headerlink" href="#pandoc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-pandoc-is">
+<h2>What Pandoc Is<a class="headerlink" href="#what-pandoc-is" title="Permalink to this headline">¶</a></h2>
+<p>Pandoc is a Linux application for converting documents from one markup format to another.</p>
+<p>Visit the <a class="reference external" href="http://pandoc.org/">Pandoc</a> website <a class="reference external" href="http://pandoc.org/">http://pandoc.org/</a></p>
+</div>
+<div class="section" id="why-pandoc-is-used">
+<h2>Why Pandoc is Used<a class="headerlink" href="#why-pandoc-is-used" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>To convert Markdown files to reStructuredText.</li>
+</ul>
+</div>
+<div class="section" id="how-pandoc-is-used">
+<h2>How Pandoc is Used<a class="headerlink" href="#how-pandoc-is-used" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create the Markdown file(s)</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://pandoc.org/installing.html">Install Pandoc</a></p>
+</li>
+<li><p class="first">Create a docs folder</p>
+</li>
+<li><p class="first">Navigate to the docs folder</p>
+</li>
+<li><p class="first">Put a copy of the modified <a class="reference internal" href="sphinx.makefile.html"><em>Sphinx Makefile</em></a></p>
+</li>
+<li><p class="first">Put a copy of the modified <a class="reference internal" href="sphinx.conf.html"><em>Sphinx Config</em></a> (conf.py)</p>
+</li>
+<li><p class="first">Create an index file: <em>index.rs_</em></p>
+<blockquote>
+<div><ul class="simple">
+<li>This is the main page of the documentation and must include a table of contents</li>
+<li>The file extension is required for non-code based files to work with the modified <a class="reference internal" href="sphinx.makefile.html"><em>Sphinx Makefile</em></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Link to the converted files within the index file</p>
+</li>
+<li><dl class="first docutils">
+<dt>Generate the documenation</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre>make html
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pandoc</a><ul>
+<li><a class="reference internal" href="#what-pandoc-is">What Pandoc Is</a></li>
+<li><a class="reference internal" href="#why-pandoc-is-used">Why Pandoc is Used</a></li>
+<li><a class="reference internal" href="#how-pandoc-is-used">How Pandoc is Used</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="package.setup.html"
+                        title="previous chapter">Package Setup</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pandoc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="package.setup.html" title="Package Setup"
+             >previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

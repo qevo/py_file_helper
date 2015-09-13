@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>file_helper.operation &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="../../index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for file_helper.operation</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;File operations wrapper functions to streamline common use cases&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">data_helper</span> <span class="kn">import</span> <span class="nb">hash</span><span class="p">,</span> <span class="n">is_str_not_empty</span><span class="p">,</span> <span class="n">is_int_pos</span><span class="p">,</span> <span class="n">is_int_not_neg</span>
+
+
+<div class="viewcode-block" id="hash_file"><a class="viewcode-back" href="../../file_helper.operation.html#file_helper.operation.hash_file">[docs]</a><span class="k">def</span> <span class="nf">hash_file</span><span class="p">(</span><span class="n">hash_name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the hash of a file</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        hash_name (str): Hash algorithm name. See :py:mod:`hashlib`</span>
+<span class="sd">        path (str): Path of file.</span>
+<span class="sd">        size (int): (optional) Read length in bytes. Defaults to None.</span>
+<span class="sd">        offset (int): (optional) Offset from the whence position. Defaults to 0.</span>
+<span class="sd">        whence (int): (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Hash (hex) string.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">hash_name</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;hash_name must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;file path must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int_not_neg</span><span class="p">(</span><span class="n">offset</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;offset must be a positive integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">whence</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;whence must be 0 - Absolute, 1 - Current, 2 - End of file&quot;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="p">)</span>
+    <span class="n">alg</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">hash</span><span class="p">,</span> <span class="n">hash_name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">alg</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="read_file"><a class="viewcode-back" href="../../file_helper.operation.html#file_helper.operation.read_file">[docs]</a><span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read a file in binary mode</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path of file.</span>
+<span class="sd">        size (int): Read length in bytes. Defaults to None.</span>
+<span class="sd">        offset (int): (optional) Offset from the whence position. Defaults to 0.</span>
+<span class="sd">        whence (int): (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Binary data.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;file path must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int_not_neg</span><span class="p">(</span><span class="n">offset</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;offset must be a positive integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">whence</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;whence must be 0 - Absolute, 1 - Current, 2 - End of file&quot;</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+</div>
+<div class="viewcode-block" id="slice_file"><a class="viewcode-back" href="../../file_helper.operation.html#file_helper.operation.slice_file">[docs]</a><span class="k">def</span> <span class="nf">slice_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">slice_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">slice_ext</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write a new file from a slice of an existing file</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path of existing file.</span>
+<span class="sd">        size (int): Read length in bytes.</span>
+<span class="sd">        offset (int): (optional) Offset from the whence position. Defaults to 0.</span>
+<span class="sd">        whence (int): (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</span>
+<span class="sd">        output_dir (str): (optional) Path to the directory where new file is saved.</span>
+<span class="sd">        slice_name (str): (optional) File name of the slice file. Defaults to the full file&#39;s name (with extension).</span>
+<span class="sd">        slice_ext (str): (optional) File extension of the slice file. Defaults to &#39;slice_oYYwXX&#39; where YY and XX are the offset and whence respectively.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: File path of slice file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;file path must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int_pos</span><span class="p">(</span><span class="n">size</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;size must be a positive integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int_not_neg</span><span class="p">(</span><span class="n">offset</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;offset must be a non negative integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">whence</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;whence must be 0 - Absolute, 1 - Current, 2 - End of file&quot;</span><span class="p">)</span>
+
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">output_dir</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">slice_ext</span> <span class="k">if</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">slice_ext</span><span class="p">)</span> <span class="k">else</span> <span class="s">&#39;slice_o&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;w&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">whence</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">slice_name</span> <span class="k">if</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">slice_name</span><span class="p">)</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">slice_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span> <span class="o">+</span> <span class="n">ext</span><span class="p">))</span>
+
+    <span class="n">write_file</span><span class="p">(</span><span class="n">slice_path</span><span class="p">,</span> <span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">slice_path</span>
+
+</div>
+<div class="viewcode-block" id="write_file"><a class="viewcode-back" href="../../file_helper.operation.html#file_helper.operation.write_file">[docs]</a><span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;new&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write a file in binary mode</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path of file.</span>
+<span class="sd">        data (str): Data to be written.</span>
+<span class="sd">        mode (str): (optional) &#39;new&#39; for a new or replacement file. &#39;insert&#39; for writing more data into a file. &#39;overwrite&#39; for writing new data over a file. &#39;append&#39; for adding to the end of a file. Defaults to &#39;new&#39;.</span>
+<span class="sd">        offset (int): (optional) Offset from the whence position. Defaults to 0.</span>
+<span class="sd">        whence (int): (optional) Originating file seek position. 0 - Absolute, 1 - Current, 2 - End of file. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: File path to written file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;file path must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_str_not_empty</span><span class="p">(</span><span class="n">data</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;data must be a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;new&#39;</span><span class="p">,</span><span class="s">&#39;insert&#39;</span><span class="p">,</span><span class="s">&#39;overwrite&#39;</span><span class="p">,</span><span class="s">&#39;append&#39;</span><span class="p">]:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;mode must be &#39;new&#39; or &#39;insert&#39; or &#39;overwrite&#39; or &#39;append&#39;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int_not_neg</span><span class="p">(</span><span class="n">offset</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;offset must be a non negative integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">whence</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;whence must be 0 - Absolute, 1 - Current, 2 - End of file&quot;</span><span class="p">)</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="c">#: create the directory path to the file if it doesn&#39;t exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s">&#39;new&#39;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c">#: stop an attempt to overwrite a directory</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;may not write file over a directory: &#39;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;append&#39;</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">whence</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;insert&#39;</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;overwrite&#39;</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;append&#39;</span><span class="p">:</span>
+        <span class="n">original_file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span>
+        <span class="n">original_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+        <span class="c">#: determine the offset position for the write action</span>
+        <span class="n">original_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="p">)</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">original_file</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+        <span class="n">original_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c">#: create a temporary file</span>
+        <span class="n">temp_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&#39;.tmp&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="c">#: write any offset data</span>
+        <span class="k">if</span> <span class="n">start_pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">original_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">start_pos</span><span class="p">))</span>
+        <span class="c">#: write new data</span>
+        <span class="n">temp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">temp_file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+        <span class="n">temp_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">temp_file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&#39;.tmp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span>
+
+        <span class="c">#: write any remaining data from the original file</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;overwrite&#39;</span> <span class="ow">and</span> <span class="n">temp_file_size</span> <span class="o">&lt;</span> <span class="n">original_file_size</span><span class="p">:</span>
+            <span class="n">temp_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&#39;.tmp&#39;</span><span class="p">,</span> <span class="s">&#39;ab&#39;</span><span class="p">)</span>
+            <span class="n">original_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">temp_file_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">original_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;insert&#39;</span><span class="p">:</span>
+            <span class="n">temp_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&#39;.tmp&#39;</span><span class="p">,</span> <span class="s">&#39;ab&#39;</span><span class="p">)</span>
+            <span class="n">original_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">original_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+            <span class="n">temp_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="n">original_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c">#: replace the original file</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&#39;.tmp&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s">&#39;new&#39;</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">path</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="../../index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

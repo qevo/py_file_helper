@@ -1,0 +1,5 @@
+--index-url https://pypi.python.org/simple/
+
+-e git://github.com/qevo/py_data_helper.git
+
+-e .

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.operation module &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="up" title="tests package" href="tests.html" />
+    <link rel="next" title="Sphinx Conf" href="sphinx.conf.html" />
+    <link rel="prev" title="tests.manage module" href="tests.manage.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sphinx.conf.html" title="Sphinx Conf"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tests.manage.html" title="tests.manage module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" accesskey="U">tests package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tests.operation">
+<span id="tests-operation-module"></span><h1>tests.operation module<a class="headerlink" href="#module-tests.operation" title="Permalink to this headline">¶</a></h1>
+<p>Tests for the file_helper.operation module</p>
+<dl class="class">
+<dt id="tests.operation.HashFileTestCase">
+<em class="property">class </em><code class="descclassname">tests.operation.</code><code class="descname">HashFileTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#HashFileTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.HashFileTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>operation.hash_file() test cases</p>
+<dl class="method">
+<dt id="tests.operation.HashFileTestCase.test_sample_md5">
+<code class="descname">test_sample_md5</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#HashFileTestCase.test_sample_md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.HashFileTestCase.test_sample_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample file md5</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.HashFileTestCase.test_sample_sha1">
+<code class="descname">test_sample_sha1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#HashFileTestCase.test_sample_sha1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.HashFileTestCase.test_sample_sha1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample file sha1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.HashFileTestCase.test_sample_slice">
+<code class="descname">test_sample_slice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#HashFileTestCase.test_sample_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.HashFileTestCase.test_sample_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the slice of a sample file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.operation.ReadFileTestCase">
+<em class="property">class </em><code class="descclassname">tests.operation.</code><code class="descname">ReadFileTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#ReadFileTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.ReadFileTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>operation.read_file() test cases</p>
+<dl class="method">
+<dt id="tests.operation.ReadFileTestCase.test_sample_1k">
+<code class="descname">test_sample_1k</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#ReadFileTestCase.test_sample_1k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.ReadFileTestCase.test_sample_1k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.ReadFileTestCase.test_sample_slice">
+<code class="descname">test_sample_slice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#ReadFileTestCase.test_sample_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.ReadFileTestCase.test_sample_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.operation.SliceFileTestCase">
+<em class="property">class </em><code class="descclassname">tests.operation.</code><code class="descname">SliceFileTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#SliceFileTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.SliceFileTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>operation.slice_file() test cases</p>
+<dl class="method">
+<dt id="tests.operation.SliceFileTestCase.test_sample_2k">
+<code class="descname">test_sample_2k</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#SliceFileTestCase.test_sample_2k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.SliceFileTestCase.test_sample_2k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.SliceFileTestCase.test_sample_slice">
+<code class="descname">test_sample_slice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#SliceFileTestCase.test_sample_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.SliceFileTestCase.test_sample_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the sample contents</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.operation.WriteFileTestCase">
+<em class="property">class </em><code class="descclassname">tests.operation.</code><code class="descname">WriteFileTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#WriteFileTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.WriteFileTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tests.BaseTest.BaseTest</span></code></p>
+<p>operation.write_file() test cases</p>
+<dl class="method">
+<dt id="tests.operation.WriteFileTestCase.test_append">
+<code class="descname">test_append</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#WriteFileTestCase.test_append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.WriteFileTestCase.test_append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the append of data to a sample file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.WriteFileTestCase.test_new_1k">
+<code class="descname">test_new_1k</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#WriteFileTestCase.test_new_1k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.WriteFileTestCase.test_new_1k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if a write creates the same file as sample</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.operation.WriteFileTestCase.test_overwrite">
+<code class="descname">test_overwrite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/operation.html#WriteFileTestCase.test_overwrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tests.operation.WriteFileTestCase.test_overwrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the overwrite of a sample</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tests.manage.html"
+                        title="previous chapter">tests.manage module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sphinx.conf.html"
+                        title="next chapter">Sphinx Conf</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tests.operation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sphinx.conf.html" title="Sphinx Conf"
+             >next</a></li>
+        <li class="right" >
+          <a href="tests.manage.html" title="tests.manage module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tests.html" >tests package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Package Setup &mdash; file_helper 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="file_helper 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="Pandoc" href="pandoc.html" />
+    <link rel="prev" title="Sphinx Makefile" href="sphinx.makefile.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="pandoc.html" title="Pandoc"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="sphinx.makefile.html" title="Sphinx Makefile"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="package-setup">
+<h1>Package Setup<a class="headerlink" href="#package-setup" title="Permalink to this headline">¶</a></h1>
+<div class="code py highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+
+<span class="c"># Utility function to read the README file.</span>
+<span class="c"># Used for the long_description.  It&#39;s nice, because now 1) we have a top level</span>
+<span class="c"># README file and 2) it&#39;s easier to type in the README file than to put a raw</span>
+<span class="c"># string in below ...</span>
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="n">fname</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span>             <span class="o">=</span> <span class="s">&quot;file_helper&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">]</span>          <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;author&quot;</span><span class="p">]</span>           <span class="o">=</span> <span class="s">&quot;Qevo&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;author_email&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="s">&quot;qevo@qevonics.net&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;description&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="p">(</span><span class="s">&quot;File search, identification, analysis, and manipulation tools.&quot;</span><span class="p">)</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;license&quot;</span><span class="p">]</span>          <span class="o">=</span> <span class="s">&quot;MIT&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;keywords&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="s">&quot;file_system file_management files file&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;url&quot;</span><span class="p">]</span>              <span class="o">=</span> <span class="s">&quot;https://github.com/qevo/py_file_helper&quot;</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;packages&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="p">[</span><span class="s">&quot;file_helper&quot;</span><span class="p">]</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;install_requires&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;data_helper&gt;=0.2.3&#39;</span><span class="p">]</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;long_description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&#39;README.md&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="p">[</span><span class="s">&quot;classifiers&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&quot;Development Status :: 3 - Alpha&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Topic :: Utilities&quot;</span><span class="p">,</span>
+    <span class="s">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">setup</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sphinx.makefile.html"
+                        title="previous chapter">Sphinx Makefile</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pandoc.html"
+                        title="next chapter">Pandoc</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/package.setup.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="pandoc.html" title="Pandoc"
+             >next</a></li>
+        <li class="right" >
+          <a href="sphinx.makefile.html" title="Sphinx Makefile"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">file_helper 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Qevo.
+      Last updated on 13 Sep 2015.
+    </div>
+  </body>
+</html>

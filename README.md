@@ -1,5 +1,5 @@
 # file_helper
-version 0.1.3  [Change Log](CHANGELOG.md)
+version 0.1.4  [Change Log](CHANGELOG.md)
 
 This helper module is a simple set of functions that make some file related activities easier.
 
@@ -7,6 +7,7 @@ Full API documentation can be found at [file_helper's documentation](https://py-
 
 ## Install
 ```
+pip install git+git://github.com/qevo/py_data_helper.git
 pip install git+git://github.com/qevo/py_file_helper.git
 ```
 

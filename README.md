@@ -1,5 +1,5 @@
 # file_helper
-version 0.1.0  [Change Log](CHANGELOG.md)
+version 0.1.1  [Change Log](CHANGELOG.md)
 
 This helper module is a simple set of functions that make some file related activities easier.
 

@@ -21,7 +21,7 @@ config["keywords"]         = "file_system file_management files file"
 config["url"]              = "https://github.com/qevo/py_file_helper"
 config["packages"]         = ["file_helper"]
 config["install_requires"] = ["data_helper"]
-config["dependency_links"] = ["git+ssh://git@github.com/qevo/py_data_helper.git#egg=data_helper"]
+config["dependency_links"] = ["git+ssh://git@github.com/qevo/py_data_helper.git#egg=data-helper"]
 config["long_description"] = read("README.md")
 config["classifiers"]      = [
     "Development Status :: 3 - Alpha",
